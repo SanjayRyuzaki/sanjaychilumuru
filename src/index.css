@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sanjay's Portfolio Design System - Dark-first modern aesthetic */
+
+@layer base {
+  :root {
+    /* Base dark theme colors */
+    --background: 222 25% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 25% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 25% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Vibrant primary - Electric blue */
+    --primary: 200 98% 55%;
+    --primary-foreground: 222 25% 7%;
+
+    /* Secondary - Deep purple */
+    --secondary: 263 85% 65%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted tones */
+    --muted: 222 25% 12%;
+    --muted-foreground: 215 25% 65%;
+
+    /* Accent - Cyan */
+    --accent: 180 95% 60%;
+    --accent-foreground: 222 25% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 25% 15%;
+    --input: 222 25% 12%;
+    --ring: 200 98% 55%;
+
+    --radius: 1rem;
+
+    /* Portfolio-specific design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(200 98% 55%), hsl(263 85% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(180 95% 60%), hsl(200 98% 55%));
+    --gradient-accent: linear-gradient(45deg, hsl(263 85% 65%), hsl(300 85% 65%));
+    
+    /* Glass effect */
+    --glass-bg: rgba(34, 40, 58, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Shadows with primary color */
+    --shadow-glow: 0 0 40px hsl(200 98% 55% / 0.3);
+    --shadow-card: 0 8px 32px hsl(222 25% 7% / 0.4);
+    --shadow-elegant: 0 20px 60px hsl(222 25% 7% / 0.6);
+
+    /* Animation variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    /* Light theme - clean and minimal */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 200 98% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 180 95% 60%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 200 98% 55%;
+
+    /* Light theme glass effect */
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    
+    /* Light theme shadows */
+    --shadow-glow: 0 0 40px hsl(200 98% 55% / 0.2);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.1);
+    --shadow-elegant: 0 20px 60px hsl(0 0% 0% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Glass morphism effects */
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .glass-button {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    transition: var(--transition-smooth);
+  }
+  
+  .glass-button:hover {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2));
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Gradient text effects */
+  .gradient-text {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-flow 3s ease-in-out infinite;
+    will-change: background-position;
+  }
+
+  .gradient-text-secondary {
+    background: var(--gradient-secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.5);
+  }
+
+  /* Interactive elements */
+  .interactive-scale {
+    transition: var(--transition-spring);
+    will-change: transform;
+  }
+  
+  .interactive-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .interactive-float {
+    transition: var(--transition-smooth);
+    will-change: transform;
+  }
+  
+  .interactive-float:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elegant);
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+  
+  @keyframes slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Performance optimizations for low-power devices */
+@media (prefers-reduced-motion: reduce) {
+  .glass-card,
+  .glass-button {
+    backdrop-filter: none;
+  }
+  
+  .gradient-text {
+    animation: none;
+  }
+  
+  .interactive-scale:hover,
+  .interactive-float:hover {
+    transform: none;
+  }
+}
+
+/* Disable backdrop-filter on devices with limited GPU capabilities */
+@media (max-width: 768px) {
+  .glass-card,
+  .glass-button {
+    backdrop-filter: none;
+  }
+}
+
+/* High-performance devices can use backdrop-filter */
+@media (min-width: 769px) and (min-resolution: 2dppx) {
+  .glass-card,
+  .glass-button {
+    backdrop-filter: blur(20px);
+  }
+}
