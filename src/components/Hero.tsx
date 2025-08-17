@@ -129,7 +129,7 @@ const Hero = () => {
           >
             {[
               { icon: Github, href: 'https://github.com/SanjayRyuzaki', label: 'GitHub' },
-              { icon: Linkedin, href: 'https://linkedin.com/in/sanjay-chilumuru', label: 'LinkedIn' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/sanjay-chilumuru-43200722b/', label: 'LinkedIn' },
               { icon: Mail, href: 'mailto:sanjaychilumuru@gmail.com', label: 'Email' },
             ].map((social, index) => (
               <motion.a
