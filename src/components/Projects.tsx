@@ -31,7 +31,7 @@ const Projects = () => {
       featured: true,
       image: "/ats.png",
       githubUrl: "https://github.com/yourusername/ats-resume-scoring",
-      demoUrl: "https://ats-resume-scoring.vercel.app",
+      demoUrl: "https://ats-demo-phi.vercel.app/",
     },
 
     {
