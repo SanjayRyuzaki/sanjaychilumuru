@@ -20,11 +20,19 @@ const Navigation = () => {
   const navItems = [
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Blog', href: '#blog', external: false },
     { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
   ];
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = (href: string, external?: boolean) => {
+    if (href === '#blog') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const blogSection = document.querySelector('#blog');
+      blogSection?.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
+      return;
+    }
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
@@ -34,6 +42,7 @@ const Navigation = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
+      transition={{ duration: 0.3 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'glass-card border-b border-border' 
@@ -44,7 +53,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
-            whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+            whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
             className="text-2xl font-bold gradient-text cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
@@ -56,10 +65,10 @@ const Navigation = () => {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                onClick={() => scrollToSection(item.href)}
+                transition={{ delay: index * 0.05, duration: 0.3 }}
+                onClick={() => scrollToSection(item.href, item.external)}
                 className="relative text-foreground hover:text-primary transition-colors duration-300 group"
               >
                 {item.name}
@@ -106,15 +115,16 @@ const Navigation = () => {
             opacity: isMobileMenuOpen ? 1 : 0, 
             height: isMobileMenuOpen ? 'auto' : 0 
           }}
+          transition={{ duration: 0.3 }}
           className="md:hidden overflow-hidden"
         >
           <div className="pt-4 pb-2 space-y-2">
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => scrollToSection(item.href, item.external)}
                 className="block w-full text-left py-2 px-4 text-foreground hover:text-primary transition-colors duration-300"
-                whileHover={prefersReducedMotion ? {} : { x: 10 }}
+                whileHover={prefersReducedMotion ? {} : { x: 5 }}
               >
                 {item.name}
               </motion.button>
