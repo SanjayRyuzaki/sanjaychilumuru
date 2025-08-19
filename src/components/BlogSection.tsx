@@ -4,7 +4,7 @@ import { BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useDeviceCapabilities } from '@/hooks/use-mobile';
 
-const BLOG_URL = 'https://sanjaychilumuru.netlify.app/';
+const BLOG_URL = 'https://sanjayblogs.netlify.app/';
 
 const BlogSection = () => {
   const ref = useRef(null);
