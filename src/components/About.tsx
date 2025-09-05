@@ -22,7 +22,7 @@ const About = () => {
       title: "Cybersecurity Intern",
       company: "IBM",
       location: "Remote",
-      period: "Summer 2024",
+      period: "Nov 2023",
       description: "Developed a tool to securely hide and retrieve messages in images using efficient algorithms and a simple UI for secure communication.",
       skills: ["Cybersecurity", "Threat Analysis", "Security Protocols"],
     },
