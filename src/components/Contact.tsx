@@ -32,17 +32,18 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Netlify Forms submission
+      // Create a FormData object for Netlify Forms
+      const formDataToSend = new FormData();
+      formDataToSend.append('form-name', 'contact');
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('message', formData.message);
+
+      // Submit to Netlify Forms
       const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'contact',
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        }),
+        body: formDataToSend,
       });
 
       if (response.ok) {
