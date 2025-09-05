@@ -18,7 +18,7 @@ const Projects = () => {
       icon: Brain,
       gradient: "from-purple-500 to-pink-500",
       featured: true,
-      image: "/scribe-smart.png",
+      image: "/scribe-smart.jpeg",
       githubUrl: "https://github.com/SanjayRyuzaki/scribe-smart",
       demoUrl: "https://scribe-smart.onrender.com",
     },
@@ -29,44 +29,44 @@ const Projects = () => {
       icon: Search,
       gradient: "from-blue-500 to-cyan-500",
       featured: true,
-      image: "/ats.png",
+      image: "/ats.jpeg",
       githubUrl: "https://github.com/yourusername/ats-resume-scoring",
       demoUrl: "https://ats-demo-phi.vercel.app/",
     },
-
     {
-      title: "Invention Management System",
-      description: "Comprehensive platform for managing intellectual property, patent applications, and innovation workflows with document management and collaboration tools.",
-      tech: ["Vue.js", "Django", "PostgreSQL", "Redis", "Docker"],
+      title: "Freelance Software Developer",
+      description: "Built a cross-platform mobile app with role-based access, real-time dashboards, and automated workflows, improving performance, scalability, and reducing operational time.",
+      tech: ["React Native", "Firebase", "CI/CD", "REST APIs", "automated QA testing"],
+      icon: Database,
+      gradient: "from-yellow-500 to-orange-500",
+      featured: false,
+      image: "/3.png",
+      githubUrl: "https://github.com/SanjayRyuzaki/MilkAppV2/tree/main",
+      demoUrl: "https://data-viz-dashboard.vercel.app",
+    },
+    {
+      title: "NLP-with-Disaster-Tweets",
+      description: "Built a real-time disaster-tweet classifier using NLP and ML pipelines, and deployed a Streamlit web app integrated with Twitter API for scalable, low-latency predictions.",
+      tech: ["Python", "NLP", "Postgrescikit-learn", "RandomForest", "Twitter API"],
       icon: Code,
       gradient: "from-orange-500 to-red-500",
       featured: false,
-      image: "/placeholder.svg",
-      githubUrl: "https://github.com/yourusername/invention-management",
+      image: "/2nd.jpeg",
+      githubUrl: "https://github.com/SanjayRyuzaki/NLP-with-Disaster-Tweets",
       demoUrl: "https://invention-management.vercel.app",
     },
     {
-      title: "YouTube Data Analysis",
-      description: "Big data analytics platform built with Hadoop ecosystem for processing and analyzing YouTube video metadata, trends, and user engagement patterns.",
+      title: "Chunking Policy in RAG",
+      description: "Explored and evaluated chunking strategies (fixed, semantic, adaptive) in RAG pipelines to improve retrieval quality, response accuracy, and system efficiency.",
       tech: ["Hadoop", "Spark", "Python", "Kafka", "Tableau"],
       icon: Video,
       gradient: "from-indigo-500 to-purple-500",
       featured: false,
-      image: "/placeholder.svg",
-      githubUrl: "https://github.com/yourusername/youtube-analysis",
+      image: "/1.jpeg",
+      githubUrl: "https://github.com/SanjayRyuzaki/chunking-policy-in-RAG-main",
       demoUrl: "https://youtube-analysis.vercel.app",
     },
-    {
-      title: "Data Visualization Dashboard",
-      description: "Interactive dashboard for visualizing complex datasets with real-time updates, custom chart types, and export capabilities for business intelligence.",
-      tech: ["D3.js", "React", "Node.js", "MongoDB", "WebSocket"],
-      icon: Database,
-      gradient: "from-yellow-500 to-orange-500",
-      featured: false,
-      image: "/placeholder.svg",
-      githubUrl: "https://github.com/yourusername/data-viz-dashboard",
-      demoUrl: "https://data-viz-dashboard.vercel.app",
-    },
+
   ];
 
   const containerVariants = {
@@ -165,14 +165,16 @@ const Projects = () => {
                       <Github className="h-4 w-4 mr-2" />
                       Code
                     </Button>
-                    <Button 
-                      size="sm" 
-                      className="bg-gradient-primary flex-1"
-                      onClick={() => window.open(project.demoUrl, '_blank', 'noopener,noreferrer')}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </Button>
+                    {(project.title === "AI Scribe Smart App" || project.title === "ATS Resume Scoring Website") && (
+                      <Button 
+                        size="sm" 
+                        className="bg-gradient-primary flex-1"
+                        onClick={() => window.open(project.demoUrl, '_blank', 'noopener,noreferrer')}
+                      >
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Live Demo
+                      </Button>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -236,19 +238,24 @@ const Projects = () => {
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="p-2"
+                      className={`${(project.title === "AI Scribe Smart App" || project.title === "ATS Resume Scoring Website") ? "p-2" : "px-4 py-2 flex-1"}`}
                       onClick={() => window.open(project.githubUrl, '_blank', 'noopener,noreferrer')}
                     >
                       <Github className="h-4 w-4" />
+                      {!(project.title === "AI Scribe Smart App" || project.title === "ATS Resume Scoring Website") && (
+                        <span className="ml-2">Code</span>
+                      )}
                     </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="p-2"
-                      onClick={() => window.open(project.demoUrl, '_blank', 'noopener,noreferrer')}
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
+                    {(project.title === "AI Scribe Smart App" || project.title === "ATS Resume Scoring Website") && (
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="p-2"
+                        onClick={() => window.open(project.demoUrl, '_blank', 'noopener,noreferrer')}
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </Button>
+                    )}
                   </div>
                 </motion.div>
               ))}
