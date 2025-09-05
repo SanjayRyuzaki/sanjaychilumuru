@@ -11,11 +11,11 @@ const About = () => {
 
   const experiences = [
     {
-      title: "NLP Intern",
-      company: "Infosys",
+      title: "Software Development Intern",
+      company: "Infosys Springboard",
       location: "Remote, India",
       period: "Jul 2024",
-      description: "Developed natural language processing solutions and contributed to AI-driven projects for enterprise clients.",
+      description: "Built a real-time disaster-tweet classifier using NLP and ML pipelines, and deployed a Streamlit web app with Twitter API integration for scalable, low-latency predictions.",
       skills: ["NLP", "Python", "Machine Learning", "AI"],
     },
     {
@@ -23,7 +23,7 @@ const About = () => {
       company: "IBM",
       location: "Remote",
       period: "Summer 2024",
-      description: "Worked on cybersecurity protocols and threat analysis, gaining hands-on experience with enterprise security solutions.",
+      description: "Developed a tool to securely hide and retrieve messages in images using efficient algorithms and a simple UI for secure communication.",
       skills: ["Cybersecurity", "Threat Analysis", "Security Protocols"],
     },
 
